@@ -29,5 +29,8 @@ namespace FinalAssignment.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Patient> Patients { get; set; }
+
     }
 }
