@@ -31,6 +31,7 @@ namespace FinalAssignment.Models
         }
 
         public DbSet<Patient> Patients { get; set; }
+        public DbSet<GP> GPs { get; set; }
 
     }
 }
