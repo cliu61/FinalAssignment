@@ -32,6 +32,10 @@ namespace FinalAssignment.Models
 
         public DbSet<Patient> Patients { get; set; }
         public DbSet<GP> GPs { get; set; }
+        public DbSet<Clinic> Clinics { get; set; }
+        public DbSet<CaseType> CaseTypes{ get; set; }
+        public DbSet<Case> Cases { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
 
     }
 }
