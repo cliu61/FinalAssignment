@@ -15,12 +15,9 @@ namespace FinalAssignment.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Clinics
-        [Authorize(Roles="Admin")]
         public ActionResult Index()
         {
-            if (User.IsInRole("Admin"))
-                return View(db.Clinics.ToList());
-            return HttpNotFound();      
+            return View(db.Clinics.ToList());     
         }
 
         // GET: Clinics/Details/5
@@ -39,7 +36,7 @@ namespace FinalAssignment.Controllers
         }
 
         // GET: Clinics/Create
-        //[Authorize(Roles ="Admin")]
+        [Authorize(Roles ="Admin")]
         public ActionResult Create()
         {
                 return View();
@@ -63,6 +60,7 @@ namespace FinalAssignment.Controllers
         }
 
         // GET: Clinics/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -94,6 +92,7 @@ namespace FinalAssignment.Controllers
         }
 
         // GET: Clinics/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

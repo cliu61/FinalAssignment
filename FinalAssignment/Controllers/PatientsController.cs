@@ -15,6 +15,7 @@ namespace FinalAssignment.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Patients
+        [Authorize (Roles = "Admin")]
         public ActionResult Index()
         {
             return View(db.Patients.ToList());

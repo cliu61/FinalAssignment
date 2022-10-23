@@ -36,6 +36,7 @@ namespace FinalAssignment.Controllers
         }
 
         // GET: CaseTypes/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -59,6 +60,7 @@ namespace FinalAssignment.Controllers
         }
 
         // GET: CaseTypes/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -90,6 +92,7 @@ namespace FinalAssignment.Controllers
         }
 
         // GET: CaseTypes/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

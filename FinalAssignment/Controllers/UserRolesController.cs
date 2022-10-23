@@ -20,6 +20,7 @@ namespace FinalAssignment.Controllers
             userManager = new UserManager<ApplicationUser>(userStore);
         }
         // GET: UserRoles
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             var roles = this.context.Roles.ToList();

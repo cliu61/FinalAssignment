@@ -37,6 +37,7 @@ namespace FinalAssignment.Controllers
         }
 
         // GET: Cases/Create
+        [Authorize(Roles = "GP")]
         public ActionResult Create()
         {
             ViewBag.CaseTypeId = new SelectList(db.CaseTypes, "Id", "Name");
@@ -64,6 +65,7 @@ namespace FinalAssignment.Controllers
         }
 
         // GET: Cases/Edit/5
+        [Authorize(Roles = "GP")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -99,6 +101,7 @@ namespace FinalAssignment.Controllers
         }
 
         // GET: Cases/Delete/5
+        [Authorize(Roles = "GP")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

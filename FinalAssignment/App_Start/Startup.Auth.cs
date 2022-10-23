@@ -55,13 +55,13 @@ namespace FinalAssignment
             //   consumerSecret: "");
 
             app.UseFacebookAuthentication(
-               appId: "abcde",
-               appSecret: "abcde");
+               appId: "425912016361054",
+               appSecret: "a19d0e198aa2121f147ec19c8b2c50e0");
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
-                ClientId = "abcde",
-                ClientSecret = "abcde"
+                ClientId = "816644752292-3npc0np3oapcg5gmf6652h8c7m8rhcap.apps.googleusercontent.com",
+                ClientSecret = "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"
             });
         }
     }
