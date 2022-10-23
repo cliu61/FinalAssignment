@@ -35,8 +35,7 @@ function initMap() {
     }
 
     // mark clinics
-
-    for (var i = 0; i < clinics.longitude; i++) {
+    for (var i = 0; i < clinics.length; i++) {
         console.log(clinics[i]);
         // geocode and mark
         geodoceAddress(map, clinics[i]);
@@ -49,23 +48,12 @@ function initMap() {
 
 function geodoceAddress(map, clinic) {
     var geocoder = new google.maps.Geocoder();
-    var content = "<h3>" + clinic.Name + "</h3><hr/><p>" + clinic.Address + "</p><p>" + clinic.ContactNumber + "</p>";
+    var content = "<h3>" + clinic.Name + "</h3>";
     const infowindow = new google.maps.InfoWindow({
         content: content,
     });
     geocoder.geocode({ address: clinic.Address }, function (result, status) {
         if (status === "OK") {
-
-            const image = {
-                url: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
-                // This marker is 20 pixels wide by 32 pixels high.
-                size: new google.maps.Size(20, 32),
-                // The origin for this image is (0, 0).
-                origin: new google.maps.Point(0, 0),
-                // The anchor for this image is the base of the flagpole at (0, 32).
-                anchor: new google.maps.Point(0, 32),
-            };
-
             var marker = new google.maps.Marker({
                 map: map,
                 icon: image,
