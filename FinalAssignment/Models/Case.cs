@@ -16,8 +16,10 @@ namespace FinalAssignment.Models
         public int CaseTypeId { get; set; }
         public CaseType CaseType { get; set; }
         [Required]
+        [DisplayFormat(DataFormatString = "{0: dd/MMM/yyyy hh:mm:tt}")]
         public DateTime StartTime { get; set; }
         [Required]
+        [DisplayFormat(DataFormatString = "{0: dd/MMM/yyyy hh:mm:tt}")]
         public DateTime EndTime { get; set; }
     }
 }
