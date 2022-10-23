@@ -15,6 +15,7 @@ namespace FinalAssignment.Models
         [Required,MaxLength(30)]
         public string LastName { get; set; }
         [Required]
+        [DisplayFormat(DataFormatString = "{0: dd/MM/yyyy}")]
         public DateTime Birthday { get; set; }
     }
 }

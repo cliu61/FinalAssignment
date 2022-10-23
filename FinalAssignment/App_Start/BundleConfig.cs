@@ -22,6 +22,11 @@ namespace FinalAssignment
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"));
             
+            //date time picker Bundle
+            bundles.Add(new ScriptBundle("~/bundles/datetimepicker").Include(
+                "~/Scripts/moment.js",
+                "~/Scripts/bootstrap-datetimepicker.min.js"));
+
             //DataTable Bundle
             bundles.Add(new ScriptBundle("~/bundles/datatables").Include(
                       "~/Scripts/DataTables/jquery.dataTables.min.js",
@@ -30,7 +35,8 @@ namespace FinalAssignment
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
-                      "~/Content/DataTables/css/dataTables.bootstrap.min.css"));
+                      "~/Content/DataTables/css/dataTables.bootstrap.min.css",
+                      "~/Content/bootstrap-datetimepicker.min.css"));
         }
     }
 }
