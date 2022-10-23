@@ -15,9 +15,12 @@ namespace FinalAssignment.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Clinics
+        [Authorize(Roles="Admin")]
         public ActionResult Index()
         {
-            return View(db.Clinics.ToList());
+            if (User.IsInRole("Admin"))
+                return View(db.Clinics.ToList());
+            return HttpNotFound();      
         }
 
         // GET: Clinics/Details/5
@@ -36,9 +39,10 @@ namespace FinalAssignment.Controllers
         }
 
         // GET: Clinics/Create
+        //[Authorize(Roles ="Admin")]
         public ActionResult Create()
         {
-            return View();
+                return View();
         }
 
         // POST: Clinics/Create

@@ -623,6 +623,9 @@
     <Content Include="Views\UserRoles\Index.cshtml" />
     <Content Include="Views\UserRoles\CreateRole.cshtml" />
     <Content Include="Views\UserRoles\EditRole.cshtml" />
+    <Content Include="Views\UserRoles\AddRoleToUser.cshtml" />
+    <Content Include="Views\UserRoles\GetUserRoles.cshtml" />
+    <Content Include="Views\UserRoles\DeleteUserRole.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
