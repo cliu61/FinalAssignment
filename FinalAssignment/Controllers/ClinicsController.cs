@@ -126,5 +126,12 @@ namespace FinalAssignment.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public JsonResult GetClinics()
+        {
+            var clinics = db.Clinics.ToList();
+            return new JsonResult { Data = clinics , JsonRequestBehavior = JsonRequestBehavior.AllowGet};
+
+        }
     }
 }
