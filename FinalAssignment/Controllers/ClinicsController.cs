@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FinalAssignment.Models;
+using Microsoft.AspNet.Identity;
 
 namespace FinalAssignment.Controllers
 {
@@ -31,6 +32,16 @@ namespace FinalAssignment.Controllers
             if (clinic == null)
             {
                 return HttpNotFound();
+            }
+            clinic.Ratings = db.Ratings.Include("User").Where(r => r.ClinicId == clinic.Id).ToList();
+            if (clinic.Ratings.Count != 0)
+            {
+                var total = 0;
+                foreach (var rate in clinic.Ratings)
+                {
+                    total += rate.Rate;
+                }
+                clinic.AvgRating = (decimal)total / clinic.Ratings.Count;
             }
             return View(clinic);
         }
@@ -132,6 +143,24 @@ namespace FinalAssignment.Controllers
             var clinics = db.Clinics.ToList();
             return new JsonResult { Data = clinics , JsonRequestBehavior = JsonRequestBehavior.AllowGet};
 
+        }
+
+        [HttpPost]
+        [Authorize]
+        public ActionResult RateClinic(int Id, string Comment, int Rate)
+        {
+            try
+            {
+                var userId = User.Identity.GetUserId();
+                var rate = new Rating { ClinicId = Id, UserId = userId, Comment = Comment, Rate = Rate };
+                db.Ratings.Add(rate);
+                db.SaveChanges();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
+            return RedirectToAction($"Details/{Id}");
         }
     }
 }

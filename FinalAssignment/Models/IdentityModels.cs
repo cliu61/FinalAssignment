@@ -37,5 +37,13 @@ namespace FinalAssignment.Models
         public DbSet<Case> Cases { get; set; }
         public DbSet<Booking> Bookings { get; set; }
 
+        public DbSet<Rating> Ratings { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Booking>().HasKey(be => new { be.CaseId, be.UserId });
+        }
+
     }
 }

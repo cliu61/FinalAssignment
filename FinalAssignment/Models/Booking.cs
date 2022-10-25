@@ -8,7 +8,6 @@ namespace FinalAssignment.Models
 {
     public class Booking
     {
-        public int Id { get; set; }
         [Required]
         public int CaseId { get; set; }
         public Case Case { get; set; }
